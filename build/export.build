@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libmagickxx/
+}
+
+export $out_root/libmagickxx/$import.target

@@ -1,0 +1,27 @@
+intf_libs = # Interface dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{magickxx}: {hxx ixx txx}{**} $intf_libs
+
+hxx{version}: in{version} $src_root/manifest
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+# Export options.
+#
+lib{magickxx}:
+{
+  cxx.export.poptions = "-I/usr/include/ImageMagick-6 -fopenmp -DMAGICKCORE_HDRI_ENABLE=0 -DMAGICKCORE_QUANTUM_DEPTH=16"
+  cxx.export.libs = "-lMagick++-6.Q16 -lMagickWand-6.Q16 -lMagickCore-6.Q16"
+}
+
+# Install into the libmagickxx/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/libmagickxx/
+  install.subdirs = true
+}

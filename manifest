@@ -1,0 +1,10 @@
+: 1
+name: libmagickxx
+version: 6.0.0
+summary: dummy package to fix build2 being unable to find ImageMagick on Ubuntu 22.04
+license: BSD-3-Clause
+description-file: README.md
+url: https://github.com/crails-framework/dummy-libmagickxx
+email: michael@unetresgrossebite.com
+depends: * build2 >= 0.15.0
+depends: * bpkg >= 0.15.0
